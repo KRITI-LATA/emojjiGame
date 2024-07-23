@@ -17,8 +17,8 @@ const NavBar = props => {
         </div>
         {isGameInProcess && (
           <div className="score-container">
-            <p className="score-text">Score: {currentScore}</p>
-            <p className="score-text">Top Score: {topScore}</p>
+            <p className="score-text">Score: {currentScore} </p>
+            <p className="score-text">Top Score: {topScore} </p>
           </div>
         )}
       </div>

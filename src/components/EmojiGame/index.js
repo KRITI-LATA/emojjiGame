@@ -57,13 +57,13 @@ class EmojiGame extends Component {
   clickEmoji = id => {
     const {emojisList} = this.props
     const {clickEmojisList} = this.state
-    const isEmojiPreesent = clickEmojisList.includes(id)
-    const clickedEmojilendth = clickEmojisList.length
+    const isEmojiPresent = clickEmojisList.includes(id)
+    const clickedEmojilength = clickEmojisList.length
 
-    if (isEmojiPreesent) {
-      this.finishedGameAndSetTopScore(clickedEmojilendth)
+    if (isEmojiPresent) {
+      this.finishedGameAndSetTopScore(clickedEmojilength)
     } else {
-      if (emojisList.length - 1 === clickedEmojilendth) {
+      if (emojisList.length - 1 === clickedEmojilength) {
         this.finishedGameAndSetTopScore(emojisList.length)
       }
       this.setState(previousState => ({
@@ -72,13 +72,14 @@ class EmojiGame extends Component {
     }
   }
 
-  getshuffledEmojisList = () => {
+  getShuffledEmojisList = () => {
     const {emojisList} = this.props
     return emojisList.sort(() => Math.random() - 0.5)
   }
 
   renderEmojiList = () => {
     const shuffledEmojisList = this.getShuffledEmojisList()
+    console.log(shuffledEmojisList)
 
     return (
       <ul className="emojis-list-container">
@@ -104,7 +105,7 @@ class EmojiGame extends Component {
         />
 
         <div className="emoji-game-body">
-          {isGameInProcess ? this.renderEmojiList : this.renderScoreCard}
+          {isGameInProcess ? this.renderEmojiList() : this.renderScoreCard()}
         </div>
       </div>
     )
